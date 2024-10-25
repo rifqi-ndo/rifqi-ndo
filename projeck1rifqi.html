@@ -1,1 +1,74 @@
-http://localhost:8080/projeck1rifqi.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPECIAL</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #output {
+            font-family: monospace;
+            white-space: pre-wrap;
+            height: 60vh; /* Tinggi div output */
+            width: 80%; /* Lebar div output */
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: white;
+            margin-bottom: 20px;
+        }
+        .heart {
+            width: 110px; /* Ukuran gambar */
+            animation: heartbeat 1s infinite; /* Animasi berdenyut */
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Love" class="heart">
+
+
+
+    <script>
+        function ketik(teks, kecepatan) {
+            let index = 0;
+            const output = document.getElementById('output');
+            const interval = setInterval(() => {
+                if (index < teks.length) {
+                    output.innerHTML += teks.charAt(index);
+                    index++;
+                    output.scrollTop = output.scrollHeight; // Menggulir ke bawah
+                } else {
+                    clearInterval(interval);
+                }
+            }, kecepatan);
+        }
+
+        const kalimatPanjang = 
+            "anisa listia ningsih adalah sosok yang memancarkan keanggunan dan kecantikan.\n" +
+            "setiap senyumnya mampu menyentuh hati,sementara ketulusan dalam sikapnya " +
+            "membuat setiap orang merasa nyaman di sekitarnya.\n" +
+            "kecantikan sejatinya bukan hanya tentang penampilan luar,tetapi juga " +
+            "bagaimana seseorang bersikap dan berinteraksi dengan dunia.\n" +
+            "dengan hati yang penuh kasih,anisa menjadi inspirasi bagi banyak orang di sekelilingnya.";
+
+        ketik(kalimatPanjang + "\n", 80); // Kecepatan 80ms
+    </script>
+</body>
+</html>
